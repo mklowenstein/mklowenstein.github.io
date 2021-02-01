@@ -1,0 +1,16 @@
+h1 {
+    color: maroon;
+    size: 15;
+    background-color: lime;
+}
+
+#third {
+    size: 72;
+    color: yellow;
+    background-color: sandybrown
+}
+
+#bootstrap-override img.one {
+    height: 200px;
+    width: 120px;
+}
