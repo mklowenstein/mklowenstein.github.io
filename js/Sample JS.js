@@ -95,7 +95,6 @@ function viewMap() {
     document.getElementById("map").style.display = "block";
     document.getElementById("mapContainer").style.display = "block";
     document.getElementById("materialsContainer").style.display = "none";
-    mapLoad()
 }
 
 function viewMaterials() {
