@@ -2,12 +2,16 @@
 <html lang="en">
 
 <head>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 
     <!--Other CSS-->
     <link rel="stylesheet" href="css/styles.css">
@@ -18,7 +22,7 @@
     <title>Matthew Lowenstein's Homepage</title>
 </head>
 
-<body>
+<body onload="mapLoad()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navigation</a>
@@ -48,7 +52,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="map.html">Map</a>
+                        <a class="nav-link" href="research.html">Research</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
@@ -63,40 +67,37 @@
     </nav>
 
     <div class="container-lg">
-        <div class="h1">Matthew Lowenstein's Homepage</div>
-        <div class="h3">Made with Bootstrap</div>
+        <div class="h1">Research </div>
+    </div>
+
+    <div class="container mt-3" id="mapContainer">
+        <h1>Map API Example</h1>
+        <div id="map"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <div class="h3" id="timeDay"></div>
+    <div class="container-fluid" id="materialsContainer">
+        <div class="row">
+            <img class="col-md h5" id="bootstrap-override" class="img-fluid" alt="..." src="/images/materials1824.png">
+            <a class="col-md h5">There must be a reason why today there are credit societies being established. The fact that people are establishing and joining these societies must have a cause. How do these credit societies promote virtue? Before answering, we can look at the ancients, who set up literary societies to cultivate body and spirit. If societies are set up on the basis of silver, members help each other gain economic profit. Verily, how can it be said that those who undertake societies on the basis of literature are just, while those who undertake societies on the basis of silver are unjust? This is the preamble.</a>
+        </div>
+    </div>
     </div>
 
     <div class="container mt-5">
-        <button type="button" class="btn btn-primary" onclick="conditional()">Conditional</button>
-        <button type="button" class="btn btn-primary" onclick="scopeValues()">Variables</button>
-        <button type="button" class="btn btn-primary" onclick="howdy()">Greetings!</button>
-        <button type="button" class="btn btn-primary" onclick="evalNumber()">Evaluate Number</button>
-        <button type="button" class="btn btn-warning" onclick="changeTitle()">Change Title</button>
+        <button type="button" class="btn btn-primary" onclick="timeDay()">Time of Day</button>
+        <button type="button" class="btn btn-primary" onclick="hideMap()">Hide Map</button>
+        <button type="button" class="btn btn-primary" onclick="viewMap()">View Map</button>
+        <button type="button" class="btn btn-primary" onclick="viewPingyao()">Pingyao</button>
+        <button type="button" class="btn btn-primary" onclick="viewQi()">Qi County</button>
+        <button type="button" class="btn btn-primary" onclick="viewTaigu()">Taigu</button>
+        <button type="button" class="btn btn-primary" onclick="viewUChicago()">Center of the Earth</button>
     </div>
 
-
-    <div class="container-lg">
-        <div class="row">
-            <img id="bootstrap-override" class="img-fluid" alt="..." src="/images/Matt pic in England.jpg">
-        </div>
-    </div>
-
-    <div class="container-fluid container-lg">
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </div>
-
-    <div class="card-body">
-        <h5 id="programCard" class="card-title">Digital Sciences</h5>
-        <p class="card-text">The University of Chicken in Dark Arts...</p>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
 </body>
-
-
 
 </html>
